@@ -3,23 +3,35 @@
     <sections>
         <sirv translate="label" module="sirv">
             <label><![CDATA[<img height="16" src="//sirv.sirv.com/website/sirv-logo-dark-blue.png?scale.height=16&canvas.height=16&canvas.color=%23ffffff00" alt="Sirv" />&nbsp;]]></label>
-            <tab>catalog</tab>
+            <tab>general</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>1000</sort_order>
+            <sort_order>10000</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-                <general translate="label">
-                    <label>General Settings</label>
+                <notice translate="label">
+                    <label>Sirv for Magento</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>0</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <comment><![CDATA[Accelerate your website with faster loading images using the Sirv CDN. <a href="https://sirv.com/" target="_blank">About Sirv</a> | <a href="https://my.sirv.com/#/contact" target="_blank">Get support</a>]]></comment>
+                </notice>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
                     <fields>
                         <enabled translate="label">
-                            <label>Use Sirv CDN</label>
+                            <label>Enable Sirv</label>
+                            <comment><![CDATA[<b>If Yes</b>, images will be served from your Sirv account.<br/><b>If No</b>, images will be served from your server.]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>1</sort_order>
@@ -27,17 +39,29 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enabled>
-                        <sirv_image_processing translate="label">
-                            <label>Use Sirv image processing</label>
+                        <network translate="label">
+                            <label>Network</label>
+                            <comment><![CDATA[<b>Sirv CDN</b> delivers your images faster, from a global network of servers.<br/><b>Sirv direct</b> delivers images only from the primary Sirv datacentre.<br/><a target="_blank" href="https://my.sirv.com/#/account/settings">Learn more</a>]]></comment>
                             <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <source_model>sirv/source_network</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </network>
+                        <sirv_image_processing translate="label">
+                            <label>Optimize from originals</label>
+                            <comment><![CDATA[<b>If Yes</b>, Sirv will deliver perfectly resized and optimized images.<br/><b>If No</b>, Sirv will deliver the Magento resized images with weaker optimization.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>sirv/source_imageprocessing</source_model>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </sirv_image_processing>
                         <image_folder translate="label">
-                            <label>Folder for image storage</label>
+                            <label>Folder name on Sirv</label>
+                            <comment><![CDATA[Images will be copied to this folder in <a target="_blank" href="https://my.sirv.com/#/browse">your Sirv account</a>.<br/>The folder will be automatically created by Sirv.]]></comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
@@ -55,7 +79,7 @@
                         </cache_storage>
                         <cache_ttl translate="label">
                             <label>Cache TTL</label>
-                            <comment>time(in minutes) after which the cache entry expires</comment>
+                            <comment>Time (in minutes) after which the cache entry expires.</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
@@ -71,31 +95,33 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <comment><![CDATA[Get your S3 access credentials from <a href="https://my.sirv.com/#/account/settings" target="_blank">your Sirv account</a>. New users can <a href="https://my.sirv.com/#/signup" target="_blank">create an account</a>.]]></comment>
                     <fields>
-                        <key translate="label">
-                            <label>S3 Key</label>
+                        <bucket translate="label">
+                            <label>Bucket</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </key>
-                        <secret translate="label">
-                            <label>S3 Secret</label>
+                        </bucket>
+                        <key translate="label">
+                            <label>Access Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>2</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </secret>
-                        <bucket translate="label">
-                            <label>S3 Bucket</label>
+                        </key>
+                        <secret translate="label">
+                            <label>Secret key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>3</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </bucket>
+                        </secret>
                     </fields>
                 </s3>
             </groups>

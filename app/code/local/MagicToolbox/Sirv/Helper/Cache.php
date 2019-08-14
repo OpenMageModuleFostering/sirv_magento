@@ -1,6 +1,6 @@
 <?php
 
-class MagicToolbox_Sirv_Helper_Cache extends Mage_Core_Helper_Abstract { 
+class MagicToolbox_Sirv_Helper_Cache extends Mage_Core_Helper_Abstract {
 
     private static $cacheStorage;
     private static $cacheTTL;
@@ -31,18 +31,18 @@ class MagicToolbox_Sirv_Helper_Cache extends Mage_Core_Helper_Abstract {
         $cacheTTL = rand(intval(self::$cacheTTL * 0.9), intval(self::$cacheTTL * 1.1));
         if(self::$cacheStorage == 1) {//NOTE: database cache
             try {
-                $db = Mage::getModel('sirv/cache')->load($url, 'url');
-                $lastChecked = $db->getLastChecked();
+                $model = Mage::getModel('sirv/cache')->load($url, 'url');
+                $lastChecked = $model->getLastChecked();
                 if(!$lastChecked) return false;
                 $lastChecked = strtotime($lastChecked);
             } catch(Exception $e) {
                 return false;
             }
-            $maxTime = intval($lastChecked) + ($cacheTTL * 60);
+            $maxTime = intval($lastChecked) + $cacheTTL;
             return (time() < $maxTime);
         } else if(self::$cacheStorage == 2) {//NOTE: file system cache
             if(array_key_exists($url, self::$cache)) {
-                $maxTime = self::$cache[$url] + ($cacheTTL * 60);
+                $maxTime = self::$cache[$url] + $cacheTTL;
                 return (time() < $maxTime);
             } else {
                 return false;
@@ -50,13 +50,17 @@ class MagicToolbox_Sirv_Helper_Cache extends Mage_Core_Helper_Abstract {
         }
     }
 
-    public function updateCache($url) {
+    public function updateCache($url, $remove = false) {
         if(self::$cacheStorage == 1) {//NOTE: database cache
             try {
-                $db = Mage::getModel('sirv/cache')->load($url, 'url');
-                $db->setUrl($url);
-                $db->setLastChecked(date('Y-m-d H:i:s'));
-                $db->save();
+                $model = Mage::getModel('sirv/cache')->load($url, 'url');
+                if($remove) {
+                    $model->delete();
+                } else {
+                    $model->setUrl($url);
+                    $model->setLastChecked(date('Y-m-d H:i:s'));
+                    $model->save();
+                }
             } catch(Exception $e) {
                 throw new Exception("Could not access caching database table.");
                 return false;
@@ -64,10 +68,14 @@ class MagicToolbox_Sirv_Helper_Cache extends Mage_Core_Helper_Abstract {
             return true;
         } else if(self::$cacheStorage == 2) {//NOTE: file system cache
             self::loadFileCache();
-            self::$cache[$url] = time();
+            if($remove) {
+                unset(self::$cache[$url]);
+            } else {
+                self::$cache[$url] = time();
+            }
             file_put_contents(self::$cacheFile, serialize(self::$cache));
             return true;
-        }       
+        }
     }
 
     public function cleanCache() {

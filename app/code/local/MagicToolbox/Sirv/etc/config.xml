@@ -2,7 +2,7 @@
 <config>
     <modules>
         <MagicToolbox_Sirv>
-            <version>1.0.0</version>
+            <version>1.0.5</version>
         </MagicToolbox_Sirv>
     </modules>
     <global>
@@ -107,6 +107,7 @@
         <sirv>
             <general>
                 <enabled>0</enabled>
+                <network>CDN</network>
                 <sirv_image_processing>1</sirv_image_processing>
                 <image_folder>magento</image_folder>
                 <cache_storage>1</cache_storage>

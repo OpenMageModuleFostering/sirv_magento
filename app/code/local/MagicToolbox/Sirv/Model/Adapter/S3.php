@@ -12,7 +12,8 @@ class MagicToolbox_Sirv_Model_Adapter_S3 extends Varien_Object {
     protected function _construct() {
         if(is_null($this->sirv)) {
             $this->bucket = Mage::getStoreConfig('sirv/s3/bucket');
-            $this->base_url = Mage::app()->getStore()->isCurrentlySecure() ? "https://{$this->bucket}.sirv.com" : "http://{$this->bucket}.sirv.com";
+            //$this->base_url = Mage::app()->getStore()->isCurrentlySecure() ? "https://{$this->domain_name}.sirv.com" : "http://{$this->domain_name}.sirv.com";
+            $this->base_url = "https://".$this->bucket.( (Mage::getStoreConfig('sirv/general/network')=='CDN')?'-cdn':'' ).".sirv.com";
             $this->image_folder = '/'.Mage::getStoreConfig('sirv/general/image_folder');
             $this->sirv = Mage::getModel('sirv/adapter_s3_wrapper', array(
                 'host' => 's3.sirv.com',
@@ -73,7 +74,7 @@ class MagicToolbox_Sirv_Model_Adapter_S3 extends Varien_Object {
         if(!$this->auth) return false;
         $destFileName = $this->getRelative($destFileName);
         try {
-        	$result = $this->sirv->uploadFile($this->image_folder.$destFileName, $srcFileName, true);
+            $result = $this->sirv->uploadFile($this->image_folder.$destFileName, $srcFileName, true);
         } catch(Exception $e) {
             $result = false;
         }
@@ -87,7 +88,7 @@ class MagicToolbox_Sirv_Model_Adapter_S3 extends Varien_Object {
         if(!$this->auth) return false;
         $fileName = $this->getRelative($fileName);
         try {
-	        $result = $this->sirv->deleteObject($this->image_folder.$fileName);
+            $result = $this->sirv->deleteObject($this->image_folder.$fileName);
         } catch(Exception $e) {
             $result = false;
         }
@@ -106,6 +107,8 @@ class MagicToolbox_Sirv_Model_Adapter_S3 extends Varien_Object {
     }
 
     public function fileExists($fileName) {
+
+        $fileName = $this->getRelative($fileName);
 
         $cached = Mage::Helper('sirv/cache')->isCached($fileName);
         if($cached) {

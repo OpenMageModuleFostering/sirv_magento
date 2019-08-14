@@ -1,7 +1,7 @@
 <?php
 
 class MagicToolbox_Sirv_Helper_Image extends Mage_Catalog_Helper_Image {
-    
+
     public function __toString() {
         if(!(bool)Mage::getStoreConfig('sirv/general/enabled')) {
             return parent::__toString();

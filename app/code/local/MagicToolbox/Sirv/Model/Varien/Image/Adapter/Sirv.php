@@ -187,7 +187,7 @@ class MagicToolbox_Sirv_Model_Varien_Image_Adapter_Sirv extends Varien_Image_Ada
         if(empty($opacity)) $opacity = 50;
 
         $this->setImagingOptions('watermark.image', urlencode($sirv->getRelUrl($sirvFileName)));
-        
+
         $this->setImagingOptions('watermark.opacity', $opacity);
 
         if($this->getWatermarkWidth() && $this->getWatermarkHeigth() && ($this->getWatermarkPosition() != self::POSITION_STRETCH)) {
@@ -250,7 +250,10 @@ class MagicToolbox_Sirv_Model_Varien_Image_Adapter_Sirv extends Varien_Image_Ada
         foreach($this->_imaging_options as $key => $value) {
             $query[] = "{$key}={$value}";
         }
+        //NOTE: &amp; leads to issue with ConfigurableSwatches module
+        //      when the source is set with js, the url is not converted
+        //      and Sirv return 400 (Bad Request) error for for url with &amp;
+        //return empty($query) ? '' : '?'.implode('&amp;', $query);
         return empty($query) ? '' : '?'.implode('&', $query);
     }
-
 }

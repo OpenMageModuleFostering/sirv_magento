@@ -27,7 +27,7 @@ if($result) {
             $charIndex = mt_rand(0, $validCharNumber-1);
             $randomHash .= $validCharacters[$charIndex];
         }
-        $installer->setConfigData('sirv/general/image_folder', "magento-{$randomHash}", 'default', 0);
+        $installer->setConfigData('sirv/general/image_folder', "magento", 'default', 0);
         //$installer->run("INSERT INTO `{$installer->getTable('core/config_data')}` VALUES (NULL, 'default', 0, 'sirv/general/image_folder', 'magento-{$randomHash}');");
     }
 }
