@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Sirv_Magento</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/artistic-license-2.0">Artistic License 2.0</license>
     <channel>community</channel>
@@ -18,9 +18,9 @@ Need to deliver your images fast? Add effects like text, watermarks or frames? S
 Sirv stores and processes all your Magento product and category images, serving them fast to your customers all around the world.&#xD;
 </notes>
     <authors><author><name>Magic Toolbox</name><user>MagicToolbox</user><email>talk@magictoolbox.com</email></author></authors>
-    <date>2015-02-13</date>
-    <time>11:11:24</time>
-    <contents><target name="magelocal"><dir name="MagicToolbox"><dir name="Sirv"><dir name="Helper"><file name="Cache.php" hash="a420885d3ac083cadac0f0d98bebb3b2"/><file name="Data.php" hash="c8b4ba55f09f4565a862a221b41fd886"/><file name="Image.php" hash="c4af0b6100ad7edfb6c42d98f5bc7938"/></dir><dir name="Model"><dir name="Adapter"><dir name="S3"><file name="Wrapper.php" hash="40d82e1a52dfcfaaf6cc2abbcb6e0ec3"/></dir><file name="S3.php" hash="98961769f86037ddabb1f5bd3d65e557"/></dir><file name="Cache.php" hash="524a1551687cd3e06846a6eacbbab745"/><file name="Category.php" hash="f6e97e546bc16f7938bc95dee7ce1cda"/><dir name="Mysql4"><dir name="Cache"><file name="Collection.php" hash="5240db3fe28e1187e6a9eb37855996f3"/></dir><file name="Cache.php" hash="b43c518f666637d49b456601d43b62d8"/></dir><file name="Observer.php" hash="fd08f8f4a93a2b1b07856088a5c4e74e"/><dir name="Product"><file name="Image.php" hash="68fcde78528ab15f89a6a74603eb1672"/></dir><dir name="Source"><file name="Cachestorage.php" hash="49439ab36f3f90b4869ac93b71e1eb7c"/></dir><dir name="Varien"><dir name="Image"><dir name="Adapter"><file name="Gd2.php" hash="ef8826cc944b6e418978ec69eea25f92"/><file name="Sirv.php" hash="7708a492555d22c5034ebfc0bd310211"/></dir></dir><file name="Image.php" hash="9ea90ac546224e0eeece85387e574d48"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="6520c10c5578d9a4cbe7fc334cae7517"/><file name="config.xml" hash="93e79c6bdcf441f9ed7610d50fd04e81"/><file name="system.xml" hash="8022a667488e4fdb4d2b4389a997737b"/></dir><dir name="sql"><dir name="sirv_setup"><file name="mysql4-install-1.0.0.php" hash="b68200579ade1c243b7cb80ed60e582b"/></dir></dir></dir></dir></target></contents>
+    <date>2015-02-24</date>
+    <time>08:49:18</time>
+    <contents><target name="magelocal"><dir name="MagicToolbox"><dir name="Sirv"><dir name="Helper"><file name="Cache.php" hash="a420885d3ac083cadac0f0d98bebb3b2"/><file name="Data.php" hash="c8b4ba55f09f4565a862a221b41fd886"/><file name="Image.php" hash="c4af0b6100ad7edfb6c42d98f5bc7938"/></dir><dir name="Model"><dir name="Adapter"><dir name="S3"><file name="Wrapper.php" hash="40d82e1a52dfcfaaf6cc2abbcb6e0ec3"/></dir><file name="S3.php" hash="98961769f86037ddabb1f5bd3d65e557"/></dir><file name="Cache.php" hash="524a1551687cd3e06846a6eacbbab745"/><file name="Category.php" hash="f6e97e546bc16f7938bc95dee7ce1cda"/><dir name="Mysql4"><dir name="Cache"><file name="Collection.php" hash="5240db3fe28e1187e6a9eb37855996f3"/></dir><file name="Cache.php" hash="b43c518f666637d49b456601d43b62d8"/></dir><file name="Observer.php" hash="fd08f8f4a93a2b1b07856088a5c4e74e"/><dir name="Product"><file name="Image.php" hash="68fcde78528ab15f89a6a74603eb1672"/></dir><dir name="Source"><file name="Cachestorage.php" hash="49439ab36f3f90b4869ac93b71e1eb7c"/></dir><dir name="Varien"><dir name="Image"><dir name="Adapter"><file name="Gd2.php" hash="ef8826cc944b6e418978ec69eea25f92"/><file name="Sirv.php" hash="7708a492555d22c5034ebfc0bd310211"/></dir></dir><file name="Image.php" hash="9ea90ac546224e0eeece85387e574d48"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="7d4d620ca88e6d6c4ef33d28181f4aa4"/><file name="config.xml" hash="8cc237cb20fded831c942f4a1f5d57a8"/><file name="system.xml" hash="7c5ee06f5eac8d19eb48bcaf66d31475"/></dir><dir name="sql"><dir name="sirv_setup"><file name="mysql4-install-1.0.0.php" hash="b68200579ade1c243b7cb80ed60e582b"/></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

@@ -2,8 +2,7 @@
 <config>
     <sections>
         <sirv translate="label" module="sirv">
-            <!-- <label>Sirv for Magento</label> -->
-            <label><![CDATA[<img height="18" src="//sirv.sirv.com/website/sirv-logo-dark-blue.png?scale.height=18&canvas.height=18&canvas.color=%23ffffff00" alt="Sirv" />&nbsp;]]>for Magento</label>
+            <label><![CDATA[<img height="16" src="//sirv.sirv.com/website/sirv-logo-dark-blue.png?scale.height=16&canvas.height=16&canvas.color=%23ffffff00" alt="Sirv" />&nbsp;]]></label>
             <tab>catalog</tab>
             <frontend_type>text</frontend_type>
             <sort_order>1000</sort_order>

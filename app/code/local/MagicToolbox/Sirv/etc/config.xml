@@ -91,7 +91,7 @@
                                 <config>
                                     <children>
                                         <sirv translate="title">
-                                            <title>Sirv for Magento</title>
+                                            <title>Sirv</title>
                                             <sort_order>100</sort_order>
                                         </sirv>
                                     </children>
