@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Sirv_Magento",
+    "type": "magento-module",
+    "license": "Artistic-License-2.0",
+    "homepage": "",
+    "description": "Serve your images faster with Sirv. Magento's best CDN for watermarks, text overlays and responsive images with super-fast delivery.",
+    "authors": [
+    {
+        "name": "Magic Toolbox",
+        "email": "talk@magictoolbox.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
